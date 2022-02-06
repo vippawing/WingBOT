@@ -1,0 +1,16 @@
+const giveMemberRoleId = "929359612220686376"
+
+const RoleId = {
+  Apex: "927837247682777118",
+  DST: "935398535032098877",
+  LOL: "929345954564427806",
+  Minecraft: "929365605348417567",
+  Overwatch: "927837401383051305",
+  R6: "927837261662396497",
+  TFT: "929362211770597427"
+}
+
+module.exports = { 
+  giveMemberRoleId,
+  RoleId,
+}
