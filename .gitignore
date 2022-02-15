@@ -1,3 +1,4 @@
 .env
-.Constant
+Constant.js
+Birthday.json
 node_modules/

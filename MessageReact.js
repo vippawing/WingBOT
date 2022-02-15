@@ -1,58 +1,63 @@
 const { RoleId } = require("./Constant")
-const { giveMemberRole, removeMemberRole } = require("./DiscordFunction")
+const DiscordAPI = require("./DiscordAPI")
 
 const MessageReactAdd = (reaction, user) => {
-  Guild = reaction.message.guild
+  guildId = reaction.message.guild.id
   switch (reaction._emoji.name) {
     case "APEX":
-      giveMemberRole(Guild, user.id, RoleId.Apex)
+      DiscordAPI.addRole(guildId, user.id, RoleId.Apex)
       break
     case "DST":
-      giveMemberRole(Guild, user.id, RoleId.DST)
+      DiscordAPI.addRole(guildId, user.id, RoleId.DST)
       break
     case "LOL":
-      giveMemberRole(Guild, user.id, RoleId.LOL)
+      DiscordAPI.addRole(guildId, user.id, RoleId.LOL)
       break
     case "Minecraft":
-      giveMemberRole(Guild, user.id, RoleId.Minecraft)
+      DiscordAPI.addRole(guildId, user.id, RoleId.Minecraft)
       break
     case "Overwatch":
-      giveMemberRole(Guild, user.id, RoleId.Overwatch)
+      DiscordAPI.addRole(guildId, user.id, RoleId.Overwatch)
       break
     case "R6":
-      giveMemberRole(Guild, user.id, RoleId.R6)
+      DiscordAPI.addRole(guildId, user.id, RoleId.R6)
       break
     case "TFT":
-      giveMemberRole(Guild, user.id, RoleId.TFT)
+      DiscordAPI.addRole(guildId, user.id, RoleId.TFT)
       break
+    case "Birthday":
+      DiscordAPI.addRole(guildId, user.id, RoleId.Birthday)
     default:
       break
   }
 }
 
 const MessageReactRemove = (reaction, user) => {
-  Guild = reaction.message.guild
+  guildId = reaction.message.guild.id
   switch (reaction._emoji.name) {
     case "APEX":
-      removeMemberRole(Guild, user.id, RoleId.Apex)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.Apex)
       break
     case "DST":
-      removeMemberRole(Guild, user.id, RoleId.DST)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.DST)
       break
     case "LOL":
-      removeMemberRole(Guild, user.id, RoleId.LOL)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.LOL)
       break
     case "Minecraft":
-      removeMemberRole(Guild, user.id, RoleId.Minecraft)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.Minecraft)
       break
     case "Overwatch":
-      removeMemberRole(Guild, user.id, RoleId.Overwatch)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.Overwatch)
       break
     case "R6":
-      removeMemberRole(Guild, user.id, RoleId.R6)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.R6)
       break
     case "TFT":
-      removeMemberRole(Guild, user.id, RoleId.TFT)
+      DiscordAPI.removeRole(guildId, user.id, RoleId.TFT)
+      break
+    case "Birthday":
+      DiscordAPI.removeRole(guildId, user.id, RoleId.Birthday)
       break
     default:
       break
