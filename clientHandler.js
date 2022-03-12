@@ -1,17 +1,16 @@
-var client = null
+const { MessageActionRow, MessageButton } = require('discord.js');
 
-const clientHandler = (Client) => {
-  client = Client
+const clientHandler = (client) => {
 
   const { giveMemberRoleIdByMsg } = require("./Constant")
   const { MessageReactAdd, MessageReactRemove } = require("./MessageReact")
-  const Image = require("./Img")
+  const { Image, showImage} = require("./Img")
   const Birthday = require('./Birthday')
   
   Birthday(client)
 
   client.on('messageCreate', (msg)  => {
-    Image(msg)
+    Image(client, msg)
   })
   
   client.on('messageReactionAdd', (reaction, user) => {
@@ -26,6 +25,15 @@ const clientHandler = (Client) => {
     }
   })
 
+  client.on('interactionCreate', interaction => {
+    if (!interaction.isButton()) return;
+    switch (interaction.customId) {
+      case 'BeeCar':
+        showImage(interaction)
+        break
+    }
+    interaction.deferUpdate()
+  })
 }
 
 module.exports = clientHandler
